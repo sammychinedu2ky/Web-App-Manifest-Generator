@@ -1,9 +1,9 @@
 import React, { useReducer } from "react";
 const initialState = {
-  name: "app name",
+  name: "app ",
   short_name: "",
-  theme_color: "#2196f3",
-  background_color: "#2196f3",
+  theme_color: "#213",
+  background_color: "#263",
   display: "browser",
   orientation: "",
   scope: "/",
@@ -31,7 +31,7 @@ const StoreProvider = ({ children }) => {
       case "start_url":
         return { ...state, ...{ start_url: action.payload } };
       default:
-        return state;
+        return 4;
     }
   }, initialState);
   return <Provider value={{ state, dispatch }}>{children}</Provider>;

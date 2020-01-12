@@ -19,6 +19,7 @@ export default () => {
   const { state } = useContext(store);
 
   let obj = JSON.stringify(state, null, "  ");
+  console.log(obj)
   if (data) {
     let blob = Converter(data.uploadFile);
     var url = window.URL.createObjectURL(blob);
@@ -61,7 +62,7 @@ export default () => {
               hidden
               type="text"
               name="manifest"
-              defaultValue={obj}
+              value={obj}
             />
             <input ref={pic} type="file" id="pic" name="pic" />
           </div>
@@ -86,7 +87,7 @@ export default () => {
               Submit
               <i className="material-icons left">file_upload</i>
             </button>
-            <input hidden type="text" name="manifest" defaultValue={obj} />
+            <input hidden type="text" name="manifest" value={obj} />
             <input type="file" id="pic" required name="pic" />
           </div>
           <div className="file-path-wrapper">

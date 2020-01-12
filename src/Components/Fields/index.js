@@ -7,9 +7,7 @@ import DisplayMode from "./Display-Mode";
 import Orientation from "./Orientation";
 import AppScope from "./App-Scope";
 import StartUrl from "./Start-Url";
-import ColorPicker from './Color-Picker'
 export default () => {
-    
   return (
     <div className="col s12 m6">
       <p style={{ fontSize: "1.3rem" }}>
@@ -26,8 +24,6 @@ export default () => {
       <Orientation />
       <AppScope />
       <StartUrl />
-      <ColorPicker/>
-
     </div>
   );
 };
