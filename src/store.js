@@ -1,11 +1,11 @@
 import React, { useReducer } from "react";
 const initialState = {
-  name: "app ",
-  short_name: "",
-  theme_color: "#213",
-  background_color: "#263",
+  name: "app name",
+  short_name: "short name",
+  theme_color: "#fff",
+  background_color: "#fff",
   display: "browser",
-  orientation: "",
+  orientation: "portrait",
   scope: "/",
   start_url: "/"
 };
