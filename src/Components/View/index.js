@@ -36,7 +36,7 @@ export default () => {
         onClick={copy}
         data-position="top"
       >
-        button
+        Copy
       </button>
 
       <div style={{ fontSize: "1.2rem" }}>
