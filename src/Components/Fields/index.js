@@ -7,7 +7,7 @@ import DisplayMode from "./Display-Mode";
 import Orientation from "./Orientation";
 import AppScope from "./App-Scope";
 import StartUrl from "./Start-Url";
-
+import ColorPicker from './Color-Picker'
 export default () => {
     
   return (
@@ -26,7 +26,7 @@ export default () => {
       <Orientation />
       <AppScope />
       <StartUrl />
-     
+      <ColorPicker/>
 
     </div>
   );

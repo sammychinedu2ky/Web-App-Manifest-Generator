@@ -7,7 +7,7 @@ export default ()=>{
    
 
     const handleChange=({target})=>{
-     //color.current.colorpicker()
+    
     dispatch({field:'theme_color',payload:target.value})
 
 }
