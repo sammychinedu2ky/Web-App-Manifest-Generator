@@ -15,7 +15,7 @@ Since graphql only support few types excluding files. I had to convert the files
 
 I also didn't want to use redux for state management, so I ended up desgining my own state manager using the context and reduce hooks in React
 
-Please feel free to make a pull request if you have any contribution or correction to make.
+Please feel free to make a pull request if you have any contribution or correction to make. I actually tried to clone this [site](https://app-manifest.firebaseapp.com/) using react with some extra tweaks
   
 
 Below are the links to repo for the servers:
