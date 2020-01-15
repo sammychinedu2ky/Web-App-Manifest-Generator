@@ -19,7 +19,7 @@ export default () => {
   const { state } = useContext(store);
 
   let obj = JSON.stringify(state, null, "  ");
-  console.log(obj)
+  console.log(obj);
   if (data) {
     let blob = Converter(data.uploadFile);
     var url = window.URL.createObjectURL(blob);
@@ -30,7 +30,6 @@ export default () => {
     a.click();
   }
   const handleSubmit = e => {
-    M.toast({ html: "Uploading" });
     e.preventDefault();
     let {
       files: [file]
@@ -39,7 +38,10 @@ export default () => {
     let obj = manifest.current.value;
     if (!file) {
       M.toast({ html: "Image required", displayLength: "1100", margin: 50 });
-    } else uploadFile({ variables: { file, manifest: obj } });
+    } else {
+      M.toast({ html: "Uploading" });
+      uploadFile({ variables: { file, manifest: obj } });
+    }
   };
 
   return (
