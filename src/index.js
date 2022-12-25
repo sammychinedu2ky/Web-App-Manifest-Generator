@@ -2,9 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import './index.css'
 import App from "./App";
-import ApolloClient from "apollo-client";
+import {ApolloClient, InMemoryCache,gql} from "@apollo/client";
 import * as serviceWorker from "./serviceWorker";
-import  { InMemoryCache, gql } from "apollo-boost";
 import { ApolloProvider } from "@apollo/react-hooks";
 import { createUploadLink } from "apollo-upload-client";
 
