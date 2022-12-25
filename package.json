@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^7.1.2",
     "apollo-client": "^2.6.10",
     "apollo-upload-client": "^17.0.0",
+    "graphql": "^14.7.0",
     "materialize-css": "^1.0.0-rc.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
