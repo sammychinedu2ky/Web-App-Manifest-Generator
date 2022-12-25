@@ -12,7 +12,10 @@ const link = createUploadLink({ uri: "https://manifest-server-graphql.herokuapp.
 console.log(link);
 const client = new ApolloClient({
     link,
-    cache: new InMemoryCache()
+    cache: new InMemoryCache(),
+    fetchOptions: {
+      mode: 'no-cors',
+    }
 });
 client
   .query({
