@@ -74,7 +74,7 @@ export default () => {
         </div>
       </form> */}
       
-      <h6>Upload via Express</h6>
+      <h6>Upload Icon</h6>
       <form
         encType="multipart/form-data"
         method="post"
