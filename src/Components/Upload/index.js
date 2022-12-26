@@ -77,7 +77,25 @@ export default () => {
         encType="multipart/form-data"
         method="post"
         action="https://manifest-server-express.herokuapp.com/upload"
-      ></form>
+      >
+         <div className="file-field input-field">
+          <div>
+            <button
+              className="btn-large waves-effect "
+              type="submit"
+              name="action"
+            >
+              Submit
+              <i className="material-icons left">file_upload</i>
+            </button>
+            <input hidden type="text" name="manifest" value={obj} />
+            <input type="file" id="pic" required name="pic" />
+          </div>
+          <div className="file-path-wrapper">
+            <input className="file-path validate" />
+          </div>
+        </div>
+      </form>
       <h6>Upload via Express</h6>
       <form
         encType="multipart/form-data"
