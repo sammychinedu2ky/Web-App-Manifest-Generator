@@ -48,12 +48,12 @@ export default () => {
     <>
       <h5>Generate Icons</h5>
       <p>
-        The Web App Manifest allows for specifying icons of varying sizes.
-        Upload a 512x512 image for the icon and we'll generate the remaining
+        The Web App Manifest allows specifying icons of varying sizes.
+        Upload a 512x512 image for the icon by clicking on the field below and we'll generate the remaining
         sizes.
       </p>
       <h6>Upload via Graphql</h6>
-      <form>
+      {/* <form>
         <div className="file-field input-field">
           <div>
             <button className="waves-effect  btn-large" onClick={handleSubmit}>
@@ -72,7 +72,12 @@ export default () => {
             <input className="file-path validate" />
           </div>
         </div>
-      </form>
+      </form> */}
+       <form
+        encType="multipart/form-data"
+        method="post"
+        action="https://manifest-server-express.herokuapp.com/upload"
+      ></form>
       <h6>Upload via Express</h6>
       <form
         encType="multipart/form-data"
