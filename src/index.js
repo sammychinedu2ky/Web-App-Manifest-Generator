@@ -7,7 +7,10 @@ import * as serviceWorker from "./serviceWorker";
 import { ApolloProvider } from "@apollo/react-hooks";
 import { createUploadLink } from "apollo-upload-client";
 
-const link = createUploadLink({ uri: "https://manifest-server-graphql.herokuapp.com/graphql" });
+const link = createUploadLink({ 
+  uri: "https://manifest-server-graphql.herokuapp.com/graphql",
+ credentials: 'include'
+ });
 console.log(link);
 const client = new ApolloClient({
     link,
