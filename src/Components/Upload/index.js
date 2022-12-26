@@ -52,7 +52,7 @@ export default () => {
         Upload a 512x512 image for the icon by clicking on the field below and we'll generate the remaining
         sizes.
       </p>
-      <h6>Upload via Graphql</h6>
+      {/* <h6>Upload via Graphql</h6> */}
       {/* <form>
         <div className="file-field input-field">
           <div>
@@ -73,29 +73,7 @@ export default () => {
           </div>
         </div>
       </form> */}
-       <form
-        encType="multipart/form-data"
-        method="post"
-        action="https://manifest-server-express.herokuapp.com/upload"
-      >
-         <div className="file-field input-field">
-          <div>
-            <button
-              className="btn-large waves-effect "
-              type="submit"
-              name="action"
-            >
-              Submit
-              <i className="material-icons left">file_upload</i>
-            </button>
-            <input hidden type="text" name="manifest" value={obj} />
-            <input type="file" id="pic" required name="pic" />
-          </div>
-          <div className="file-path-wrapper">
-            <input className="file-path validate" />
-          </div>
-        </div>
-      </form>
+      
       <h6>Upload via Express</h6>
       <form
         encType="multipart/form-data"
