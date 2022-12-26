@@ -8,8 +8,7 @@ import { ApolloProvider } from "@apollo/react-hooks";
 import { createUploadLink } from "apollo-upload-client";
 
 const link = createUploadLink({ 
-  uri: "https://manifest-server-graphql.herokuapp.com/graphql",
- credentials: true
+  uri: "https://manifest-server-graphql.herokuapp.com/graphql"
  });
 console.log(link);
 const client = new ApolloClient({
