@@ -40,7 +40,12 @@ export default () => {
       M.toast({ html: "Image required", displayLength: "1100", margin: 50 });
     } else {
       M.toast({ html: "Uploading" });
-      uploadFile({ variables: { file, manifest: obj } });
+      try {
+        uploadFile({ variables: { file, manifest: obj } });
+        
+      } catch (error) {
+        console.log(error)
+      }
     }
   };
 
