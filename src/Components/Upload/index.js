@@ -29,20 +29,20 @@ export default () => {
     document.body.appendChild(a);
     a.click();
   }
-  const handleSubmit = e => {
-    e.preventDefault();
-    let {
-      files: [file]
-    } = pic.current;
+  // const handleSubmit = e => {
+  //   e.preventDefault();
+  //   let {
+  //     files: [file]
+  //   } = pic.current;
 
-    let obj = manifest.current.value;
-    if (!file) {
-      M.toast({ html: "Image required", displayLength: "1100", margin: 50 });
-    } else {
-      M.toast({ html: "Uploading" });
-      uploadFile({ variables: { file, manifest: obj } });
-    }
-  };
+  //   let obj = manifest.current.value;
+  //   if (!file) {
+  //     M.toast({ html: "Image required", displayLength: "1100", margin: 50 });
+  //   } else {
+  //     M.toast({ html: "Uploading" });
+  //     uploadFile({ variables: { file, manifest: obj } });
+  //   }
+  // };
 
   return (
     <>
