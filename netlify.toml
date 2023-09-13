@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "/"
+  to = "https://progressier.com/pwa-manifest-generator"
+  status = 301
