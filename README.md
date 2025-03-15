@@ -1,3 +1,4 @@
+This project is not currently available to process manifest generation requests, but you can clone the front end and server to use locally.
 [![Netlify Status](https://api.netlify.com/api/v1/badges/4ac1edc7-0c98-41dd-8589-84b7ab1f1d08/deploy-status)](https://app.netlify.com/sites/manifest-gen/deploys)
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app) and uses [Netlify](https://www.netlify.com) for hosting.
