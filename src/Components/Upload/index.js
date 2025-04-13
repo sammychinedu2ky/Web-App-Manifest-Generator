@@ -1,97 +1,70 @@
 import React, { useRef, useContext } from "react";
 import { store } from "../../store";
 import M from "materialize-css";
-import Converter from "../../utils";
-import { useMutation } from "@apollo/react-hooks";
-import gql from "graphql-tag";
-
-const uploadFileMutation = gql`
-  mutation UploadFile($file: Upload!, $manifest: String) {
-    uploadFile(file: $file, manifest: $manifest)
-  }
-`;
+import { resizeImage, generateManifest, createZip } from "../../utils";
 
 export default () => {
-  const [uploadFile, { data }] = useMutation(uploadFileMutation);
-
-  let manifest = useRef();
-  let pic = useRef();
+  const pic = useRef();
   const { state } = useContext(store);
 
-  let obj = JSON.stringify(state, null, "  ");
-  console.log(obj);
-  if (data) {
-    let blob = Converter(data.uploadFile);
-    var url = window.URL.createObjectURL(blob);
-    var a = document.createElement("a");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const file = pic.current.files[0];
+    if (!file) {
+      M.toast({ html: "Image required", displayLength: "1100" });
+      return;
+    }
+
+    M.toast({ html: "Processing..." });
+
+    // Resize images
+    const sizes = [
+      { width: 72, height: 72 },
+      { width: 96, height: 96 },
+      { width: 128, height: 128 },
+      { width: 144, height: 144 },
+      { width: 152, height: 152 },
+      { width: 192, height: 192 },
+      { width: 384, height: 384 },
+      { width: 512, height: 512 },
+    ];
+    const resizedImages = await resizeImage(file, sizes);
+
+    // Generate manifest
+    const manifest = generateManifest(state, resizedImages);
+
+    // Create ZIP
+    const zipBlob = await createZip(manifest, resizedImages);
+
+    // Download ZIP
+    const url = URL.createObjectURL(zipBlob);
+    const a = document.createElement("a");
     a.href = url;
-    a.download = "filename.zip";
+    a.download = "manifest-icons.zip";
     document.body.appendChild(a);
     a.click();
-  }
-  // const handleSubmit = e => {
-  //   e.preventDefault();
-  //   let {
-  //     files: [file]
-  //   } = pic.current;
+    document.body.removeChild(a);
 
-  //   let obj = manifest.current.value;
-  //   if (!file) {
-  //     M.toast({ html: "Image required", displayLength: "1100", margin: 50 });
-  //   } else {
-  //     M.toast({ html: "Uploading" });
-  //     uploadFile({ variables: { file, manifest: obj } });
-  //   }
-  // };
+    M.toast({ html: "Download complete!" });
+  };
 
   return (
     <>
-      <h5>Generate Icons</h5>
+      <h5>Generate Icons and Manifest</h5>
       <p>
-        The Web App Manifest allows specifying icons of varying sizes.
-        Upload a 512x512 image for the icon by clicking on the field below and we'll generate the remaining
-        sizes.
+        The Web App Manifest allows specifying icons of varying sizes. Upload a
+        512x512 image for the icon by clicking on the field below and we'll
+        generate the remaining sizes.
       </p>
-      {/* <h6>Upload via Graphql</h6> */}
-      {/* <form>
+      <form onSubmit={handleSubmit}>
         <div className="file-field input-field">
           <div>
-            <button className="waves-effect  btn-large" onClick={handleSubmit}>
-              <i className="material-icons left">file_upload</i>Upload
-            </button>
-            <input
-              ref={manifest}
-              hidden
-              type="text"
-              name="manifest"
-              value={obj}
-            />
-            <input ref={pic} type="file" id="pic" name="pic" />
-          </div>
-          <div className="file-path-wrapper">
-            <input className="file-path validate" />
-          </div>
-        </div>
-      </form> */}
-      
-      <h6>Upload Icon</h6>
-      <form
-        encType="multipart/form-data"
-        method="post"
-        action="https://manifest-server-express.herokuapp.com/upload"
-      >
-        <div className="file-field input-field">
-          <div>
-            <button
-              className="btn-large waves-effect "
-              type="submit"
-              name="action"
-            >
-              Submit
+            <button className="btn-large waves-effect" type="submit">
+              Generate
               <i className="material-icons left">file_upload</i>
             </button>
-            <input hidden type="text" name="manifest" value={obj} />
-            <input type="file" id="pic" required name="pic" />
+            <input ref={pic} type="file" id="pic" required name="pic" />
           </div>
           <div className="file-path-wrapper">
             <input className="file-path validate" />
