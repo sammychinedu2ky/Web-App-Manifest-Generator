@@ -2,9 +2,11 @@ import React from "react";
 import Nav from "./Nav";
 import Fields from "./Fields";
 import Section from "./Section";
+import Promo from "./Promo";
 export default () => (
   <div>
     <Nav />
+    <Promo />
     <div className="row">
       <Fields />
       <Section />
