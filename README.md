@@ -14,5 +14,13 @@ Please feel free to make a pull request if you have any contribution or correcti
 
 The site link can be found [here](https://manifest-gen.netlify.com/).
 
+---
 
+<div align="center">
+  <h3>🎮 Check Out My Typing Game! ⌨️</h3>
+  <p>Hey! I also built a fun typing game to help you improve your typing speed and have a blast doing it!</p>
+  <a href="https://typingblooms.com" target="_blank">
+    <img src="https://img.shields.io/badge/Play%20Now-typingblooms.com-blueviolet?style=for-the-badge&logo=keyboard&logoColor=white" alt="Play TypingBlooms"/>
+  </a>
+</div>
 
